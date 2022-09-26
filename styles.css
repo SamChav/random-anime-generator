@@ -129,7 +129,7 @@
 @media (max-width:800px) {
     .appContainer {
         transition: ease-in-out 3s;
-        height: fit-content;
+
     }
 }
 
@@ -143,6 +143,6 @@
 @media (max-width:1000px) {
     .appContainer {
         transition: ease-in-out 2s;
-        height: fit-content;
+
     }
 }
