@@ -129,7 +129,7 @@
 @media (max-width:800px) {
     .appContainer {
         transition: ease-in-out 3s;
-
+        width: 100vw;
     }
 }
 
@@ -137,12 +137,13 @@
     .appContainer {
         transition: ease-in-out 2s;
         height: 100vh;
+        width: 100vw;
     }
 }
 
 @media (max-width:1000px) {
     .appContainer {
         transition: ease-in-out 2s;
-
+        width: 100vw;
     }
 }
