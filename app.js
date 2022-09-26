@@ -6,18 +6,27 @@ const getAnimeCharButton = document.querySelector(".getAnimeCharButton");
 const charImg = document.querySelector(".charImg");
 const infoDiv = document.querySelector(".infoDiv");
 const getShowInfoButton = document.querySelector(".getShowInfoButton");
+const haikyuuButton = document.querySelector("#haikyuuButton");
+
 const localCharacterImage = [];
 const localCharacterName = [];
 const localVoiceActorName = [];
 let charId = 0;
-axios.get(`https://api.jikan.moe/v4/anime/20583/characters`).then((res) => {
-  const animeArray = res.data.data;
-  animeArray.forEach((el) => {
-    localCharacterImage.push(el.character.images.webp.image_url);
-    localCharacterName.push(el.character.name);
-    localVoiceActorName.push(el.voice_actors[0].person.name);
+
+listingsContainer.style.display = "none";
+
+haikyuuButton.addEventListener("click", () => {
+  listingsContainer.style.display = "flex";
+  axios.get(`https://api.jikan.moe/v4/anime/20583/characters`).then((res) => {
+    const animeArray = res.data.data;
+    animeArray.forEach((el) => {
+      localCharacterImage.push(el.character.images.webp.image_url);
+      localCharacterName.push(el.character.name);
+      localVoiceActorName.push(el.voice_actors[0].person.name);
+    });
   });
 });
+
 let isAiring = "";
 
 const showInfoFunc = () => {
@@ -27,7 +36,6 @@ const showInfoFunc = () => {
     } else {
       isAiring = "Yeah, Totally!";
     }
-
     charImg.src = res.data.data.images.jpg.image_url;
     infoDiv.innerText = `
         Show name?! ${res.data.data.title} \n
@@ -45,7 +53,7 @@ getAnimeCharButton.addEventListener("click", () => {
   charId = Math.floor(Math.random() * (max - min) + min);
   charImg.src = localCharacterImage[charId];
   infoDiv.innerText = `Name: ${localCharacterName[charId]} \n
-  Actor's Name: ${localVoiceActorName[charId]}`;
+    Actor's Name: ${localVoiceActorName[charId]}`;
 });
 
 getShowInfoButton.addEventListener("click", () => {

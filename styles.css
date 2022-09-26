@@ -83,12 +83,22 @@
     cursor: pointer;
 }
 
-.getAnimeCharButton:hover {
+.getAnimeCharButton:active {
     scale: 1.05;
     transition: ease-in-out .1s;
 }
 
 .getAnimeCharButton:active {
+    scale: .98;
+    transition: ease-in-out .1s;
+}
+
+.getShowInfoButton:active {
+    scale: 1.05;
+    transition: ease-in-out .1s;
+}
+
+.getShowInfoButton:active {
     scale: .98;
     transition: ease-in-out .1s;
 }
