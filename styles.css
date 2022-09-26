@@ -133,10 +133,10 @@
     }
 }
 
-@media (max-width:600px) {
+@media (max-width:500px) {
     .appContainer {
         transition: ease-in-out 2s;
-        height: fit-content;
+        height: 100vh;
     }
 }
 
