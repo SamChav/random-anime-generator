@@ -7,30 +7,88 @@ const charImg = document.querySelector(".charImg");
 const infoDiv = document.querySelector(".infoDiv");
 const getShowInfoButton = document.querySelector(".getShowInfoButton");
 const haikyuuButton = document.querySelector("#haikyuuButton");
+const onePieceButton = document.querySelector("#onePieceButton");
+const mhaButton = document.querySelector("#mhaButton");
 
-const localCharacterImage = [];
-const localCharacterName = [];
-const localVoiceActorName = [];
+let localCharacterImage = [];
+let localCharacterName = [];
 let charId = 0;
-
+let showNum = 0;
+let numOfChars = 0;
 listingsContainer.style.display = "none";
 
-haikyuuButton.addEventListener("click", () => {
+haikyuuButton.addEventListener("click", getHaikyuu);
+
+async function getHaikyuu() {
+  appContainer.style.backgroundImage = "url('./background.png')";
+  charImg.src = "./transparentimg.png";
+  infoDiv.innerText = null;
+  localCharacterImage = [];
+  localCharacterName = [];
+  showNum = 20583;
   listingsContainer.style.display = "flex";
-  axios.get(`https://api.jikan.moe/v4/anime/20583/characters`).then((res) => {
-    const animeArray = res.data.data;
-    animeArray.forEach((el) => {
-      localCharacterImage.push(el.character.images.webp.image_url);
-      localCharacterName.push(el.character.name);
-      localVoiceActorName.push(el.voice_actors[0].person.name);
+  await axios
+    .get(`https://api.jikan.moe/v4/anime/20583/characters`)
+    .then((res) => {
+      const animeArray = res.data.data;
+      animeArray.forEach((el) => {
+        localCharacterImage.push(el.character.images.webp.image_url);
+        localCharacterName.push(el.character.name);
+      });
+      numOfChars = localCharacterImage.length;
     });
-  });
-});
+}
+
+onePieceButton.addEventListener("click", getOnePiece);
+
+async function getOnePiece() {
+  appContainer.style.backgroundImage = "url('./onepiece.png')";
+  charImg.src = "./transparentimg.png";
+  infoDiv.innerText = null;
+  localCharacterImage = [];
+  localCharacterName = [];
+  animeCard.style.display = "flex";
+  showNum = 21;
+  listingsContainer.style.display = "flex";
+  await axios
+    .get(`https://api.jikan.moe/v4/anime/21/characters`)
+    .then((res) => {
+      const animeArray = res.data.data;
+      animeArray.forEach((el) => {
+        localCharacterImage.push(el.character.images.webp.image_url);
+        localCharacterName.push(el.character.name);
+      });
+      numOfChars = localCharacterImage.length;
+    });
+}
+
+async function mha() {
+  appContainer.style.backgroundImage = "url('./mha.png')";
+  charImg.src = "./transparentimg.png";
+  infoDiv.innerText = null;
+  localCharacterImage = [];
+  localCharacterName = [];
+  animeCard.style.display = "flex";
+  showNum = 31964;
+  listingsContainer.style.display = "flex";
+  await axios
+    .get(`https://api.jikan.moe/v4/anime/31964/characters`)
+    .then((res) => {
+      const animeArray = res.data.data;
+      animeArray.forEach((el) => {
+        localCharacterImage.push(el.character.images.webp.image_url);
+        localCharacterName.push(el.character.name);
+      });
+      numOfChars = localCharacterImage.length;
+    });
+}
+
+mhaButton.addEventListener("click", mha);
 
 let isAiring = "";
 
 const showInfoFunc = () => {
-  axios.get(`https://api.jikan.moe/v4/anime/20583`).then((res) => {
+  axios.get(`https://api.jikan.moe/v4/anime/${showNum}`).then((res) => {
     if (res.data.data.airing === false) {
       isAiring = "Nope";
     } else {
@@ -49,11 +107,10 @@ const showInfoFunc = () => {
 
 getAnimeCharButton.addEventListener("click", () => {
   const min = Math.ceil(0);
-  const max = Math.floor(83);
+  const max = Math.floor(numOfChars);
   charId = Math.floor(Math.random() * (max - min) + min);
   charImg.src = localCharacterImage[charId];
-  infoDiv.innerText = `Name: ${localCharacterName[charId]} \n
-    Actor's Name: ${localVoiceActorName[charId]}`;
+  infoDiv.innerText = `Name: ${localCharacterName[charId]} \n`;
 });
 
 getShowInfoButton.addEventListener("click", () => {
