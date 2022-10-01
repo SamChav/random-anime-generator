@@ -170,7 +170,7 @@ const userGuessLogic = (e) => {
     charImg.style.filter = "blur(9px)";
     guessAttempts++;
     guessInput.value = "";
-    infoDiv.innerText = `Guesses: ${guessAttempts} / 5`;
+    infoDiv.innerText = `WRONG! \n Guesses: ${guessAttempts} / 5`;
   } else if (
     guessAttempts === 1 &&
     !localCharacterName[charId].toLowerCase().split(" ").includes(userGuess)
@@ -178,7 +178,7 @@ const userGuessLogic = (e) => {
     charImg.style.filter = "blur(7px)";
     guessAttempts++;
     guessInput.value = "";
-    infoDiv.innerText = `Guesses: ${guessAttempts} / 5`;
+    infoDiv.innerText = `WRONG! \n Guesses: ${guessAttempts} / 5`;
   } else if (
     guessAttempts === 2 &&
     !localCharacterName[charId].toLowerCase().split(" ").includes(userGuess)
@@ -186,7 +186,7 @@ const userGuessLogic = (e) => {
     charImg.style.filter = "blur(5px)";
     guessAttempts++;
     guessInput.value = "";
-    infoDiv.innerText = `Guesses: ${guessAttempts} / 5`;
+    infoDiv.innerText = `WRONG! \n Guesses: ${guessAttempts} / 5`;
   } else if (
     guessAttempts === 3 &&
     !localCharacterName[charId].toLowerCase().split(" ").includes(userGuess)
@@ -194,7 +194,7 @@ const userGuessLogic = (e) => {
     charImg.style.filter = "blur(3px)";
     guessAttempts++;
     guessInput.value = "";
-    infoDiv.innerText = `Guesses: ${guessAttempts} / 5`;
+    infoDiv.innerText = `WRONG! \n Guesses: ${guessAttempts} / 5`;
   } else if (
     localCharacterName[charId].toLowerCase().split(" ").includes(userGuess)
   ) {

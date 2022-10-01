@@ -25,7 +25,7 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  transition: ease-in-out 3s;
+  transition: ease-in-out 1s;
 }
 
 .navBar {
