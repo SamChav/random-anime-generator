@@ -14,7 +14,6 @@
 .appContainer {
   display: flex;
   flex-direction: column;
-  border: 1px solid;  
   width: 100%;
   height: 100vh;
   background-image: url("./background.png");
@@ -26,6 +25,7 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  transition: ease-in-out 3s;
 }
 
 .navBar {
@@ -55,7 +55,6 @@
     align-self: center;
     width: fit-content;
     height: fit-content;
-    margin-bottom: 20px;
     color: white;
     border: none;
     border-radius: 10px;
@@ -64,6 +63,7 @@
     align-items: center;
     flex-wrap: nowrap;
     scrollbar-width: none;
+    border: 1px solid red;
 }
 
 .getAnimeCharButton {
@@ -76,6 +76,7 @@
     margin: 10px;
     background: rgb(0, 0, 0, .85);
     cursor: pointer;
+    border: 1px solid red;
 }
 .getShowInfoButton {
     width: 220px;
@@ -87,6 +88,44 @@
     margin: 10px;
     background: rgb(0, 0, 0, .85);
     cursor: pointer;
+    border: 1px solid red;
+}
+
+.guessingGameButton {
+    width: 220px;
+    height: 50px;
+    align-self: center;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    margin: 10px;
+    background: rgb(0, 0, 0, .85);
+    cursor: pointer;
+    border: 1px solid red;
+}
+
+.resetScoreButton {
+    display: flex;
+    position: relative;
+    width: 220px;
+    height: 50px;
+    align-self: center;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    margin: 10px;
+    background: rgb(0, 0, 0, .85);
+    cursor: pointer;
+    border: 1px solid red;
+}
+.resetScoreButton:active {
+    scale: 1.05;
+    transition: ease-in-out .1s;
+}
+
+.resetScoreButton:active {
+    scale: .98;
+    transition: ease-in-out .1s;
 }
 
 .getAnimeCharButton:active {
@@ -105,6 +144,16 @@
 }
 
 .getShowInfoButton:active {
+    scale: .98;
+    transition: ease-in-out .1s;
+}
+
+.guessingGameButton:active {
+    scale: 1.05;
+    transition: ease-in-out .1s;
+}
+
+.guessingGameButton:active {
     scale: .98;
     transition: ease-in-out .1s;
 }
@@ -141,8 +190,48 @@
     background: transparent;
     border: none;
 }
+.guessSubmit {
+    width: 220px;
+    height: 50px;
+    align-self: center;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    margin: 10px;
+    background: rgb(0, 0, 0, .85);
+    cursor: pointer;
+    border: 1px solid red;
+}
+.guessSubmit:active {
+    scale: 1.05;
+    transition: ease-in-out .1s;
+}
 
-@media (max-width:1100px) {
+.guessSubmit:active {
+    scale: .98;
+    transition: ease-in-out .1s;
+}
+.guessInput {
+    align-self: center;
+    display: flex;
+    position: relative;
+    width: 15rem;
+    height: 2rem;
+    margin: 2rem;
+    color: black;
+    border-radius: 5px;
+    text-align: center;
+    outline: none;
+}
+.guessingGameWrapper {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width:2000px) {
     .appContainer {
         width: 100vw;
     }
