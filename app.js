@@ -23,6 +23,7 @@ let numOfChars = 0;
 let isAiring = "";
 let guessAttempts = 0;
 let score = 0;
+let numOfEpisodes = '';
 
 listingsContainer.style.display = "none";
 guessingGameWrapper.style.display = "none";
@@ -131,12 +132,13 @@ const showInfoFunc = () => {
     } else {
       isAiring = "Yeah, Totally!";
     }
+    res.data.data.episodes === null ? numOfEpisodes = "OH NO, I DON'T KNOW!" : numOfEpisodes = res.data.data.episodes
     charImg.src = res.data.data.images.jpg.image_url;
     infoDiv.innerText = `
         Show name?! ${res.data.data.title} \n
         Still being made?! ${isAiring} \n
         When was this made?! ${res.data.data.year} \n    
-        And how many episodes are there?! ${res.data.data.episodes} \n
+        And how many episodes are there?! ${numOfEpisodes} \n
         Did you know ${res.data.data.title} is ranked ${res.data.data.rank} out of all anime?!
         `;
   });
