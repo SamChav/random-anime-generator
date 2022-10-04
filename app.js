@@ -165,7 +165,6 @@ const userGuessLogic = (e) => {
   e.preventDefault();
   const userGuess = e.target.form[0].value;
   guessInput.value = "";
-  console.log(localCharacterName[charId], userGuess)
   if (
     guessAttempts === 0 &&
     !localCharacterName[charId].toLowerCase().split(", ").includes(userGuess.toLowerCase())
