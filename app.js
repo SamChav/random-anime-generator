@@ -165,9 +165,10 @@ const userGuessLogic = (e) => {
   e.preventDefault();
   const userGuess = e.target.form[0].value;
   guessInput.value = "";
+  console.log(localCharacterName[charId], userGuess)
   if (
     guessAttempts === 0 &&
-    !localCharacterName[charId].toLowerCase().split(" ").includes(userGuess)
+    !localCharacterName[charId].toLowerCase().split(", ").includes(userGuess.toLowerCase())
   ) {
     charImg.style.filter = "blur(9px)";
     guessAttempts++;
@@ -175,7 +176,7 @@ const userGuessLogic = (e) => {
     infoDiv.innerText = `WRONG! \n Guesses: ${guessAttempts} / 5`;
   } else if (
     guessAttempts === 1 &&
-    !localCharacterName[charId].toLowerCase().split(" ").includes(userGuess)
+    !localCharacterName[charId].toLowerCase().split(", ").includes(userGuess)
   ) {
     charImg.style.filter = "blur(7px)";
     guessAttempts++;
@@ -183,7 +184,7 @@ const userGuessLogic = (e) => {
     infoDiv.innerText = `WRONG! \n Guesses: ${guessAttempts} / 5`;
   } else if (
     guessAttempts === 2 &&
-    !localCharacterName[charId].toLowerCase().split(" ").includes(userGuess)
+    !localCharacterName[charId].toLowerCase().split(", ").includes(userGuess)
   ) {
     charImg.style.filter = "blur(5px)";
     guessAttempts++;
@@ -191,14 +192,14 @@ const userGuessLogic = (e) => {
     infoDiv.innerText = `WRONG! \n Guesses: ${guessAttempts} / 5`;
   } else if (
     guessAttempts === 3 &&
-    !localCharacterName[charId].toLowerCase().split(" ").includes(userGuess)
+    !localCharacterName[charId].toLowerCase().split(", ").includes(userGuess)
   ) {
     charImg.style.filter = "blur(3px)";
     guessAttempts++;
     guessInput.value = "";
     infoDiv.innerText = `WRONG! \n Guesses: ${guessAttempts} / 5`;
   } else if (
-    localCharacterName[charId].toLowerCase().split(" ").includes(userGuess)
+    localCharacterName[charId].toLowerCase().split(", ").includes(userGuess)
   ) {
     infoDiv.style.display = "flex";
     charImg.style.filter = "blur(0px)";
